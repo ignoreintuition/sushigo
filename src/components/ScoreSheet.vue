@@ -1,7 +1,7 @@
 <template>
   <div id="scoresheet">
     <div id="header">
-      <img class="logo" src="../assets/sg.png" />
+      <h1>SUSHI GO</h1>
     </div>
     <div class="row">
       <div class="col-2">
@@ -18,20 +18,22 @@
         <Player v-bind:player="player"> </Player>
       </div>
     </div>
-    <img class="sushi" src="../assets/Wasabi.png" />
     <Score />
+    <dScore />
   </div>
 </template>
 
 <script>
 import Player from "./Player.vue";
 import Score from "./Score.vue";
+import dScore from "./dScore.vue";
 import store from "./../store";
 export default {
   props: {},
   components: {
     Player,
-    Score
+    Score,
+    dScore
   },
   data: () => ({
     players: store.getters.players

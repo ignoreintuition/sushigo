@@ -10,7 +10,7 @@
     <button @click="itemClicked(3)" class="calculator" v-b-modal.calcModal>
       {{ score[2] }}
     </button>
-    <button @click="itemClicked(4)" class="calculator" v-b-modal.calcModal>
+    <button @click="itemClicked(4)" class="calculator" v-b-modal.dModal>
       {{ score[3] }}
     </button>
     <div class="calculator">{{ total }}</div>
@@ -29,7 +29,7 @@ export default {
   },
   computed: {
     total: function() {
-      return this.score[0] + this.score[1] + this.score[2] + this.score[3];
+      return Number(this.score[0]) + Number(this.score[1]) + Number(this.score[2]) + Number(this.score[3]);
     },
     score: function() {
       return store.getters.score(this.player.player);

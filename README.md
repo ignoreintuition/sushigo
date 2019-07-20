@@ -1,4 +1,9 @@
 # sshigo
+## To Do
+* Change player names
+* Add Players / Remove Player
+* Save Player Names
+* Save Scores
 
 ## Project setup
 ```
