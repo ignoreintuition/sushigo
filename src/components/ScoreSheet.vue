@@ -14,7 +14,7 @@
           <div>Total</div>
         </div>
       </div>
-      <div v-for="player in players" class="col-2">
+      <div v-for="(player, index) in players" class="col-2">
         <Player v-bind:player="player"> </Player>
       </div>
     </div>

@@ -16,6 +16,9 @@ export default new Vuex.Store({
       player.score = [0, 0, 0, 0];
       state.players.push(player);
     },
+    deletePlayer(state, index) {
+      state.players.splice(index, 1);
+    },
     setCurrPlayer(state, playerNbr) {
       state.currPlayer = playerNbr;
     },

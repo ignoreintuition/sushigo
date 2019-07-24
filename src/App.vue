@@ -27,4 +27,15 @@ export default {
 body {
   background-color: #3e2411 !important;
 }
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
 </style>

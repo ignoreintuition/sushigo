@@ -97,13 +97,13 @@ export default {
       store.commit("updateCurrPlayerScore", this.score);
     },
     resetModal() {
-      this.score.tempura = 0;
-      this.score.sashimi = 0;
-      this.score.dumpling = 0;
-      this.score.maki = 0;
-      this.score.sNigiri = 0;
-      this.score.qNigiri = 0;
-      this.score.eNigiri = 0;
+      this.score.tempura = null;
+      this.score.sashimi = null;
+      this.score.dumpling = null;
+      this.score.maki = null;
+      this.score.sNigiri = null;
+      this.score.qNigiri = null;
+      this.score.eNigiri = null;
     }
   }
 };

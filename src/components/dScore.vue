@@ -26,7 +26,7 @@ export default {
   props: [],
   data: () => ({
     score: {
-      pudding: 0
+      pudding: null
     }
   }),
   methods: {

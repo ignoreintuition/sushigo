@@ -1,18 +1,21 @@
 <template>
   <div class="labels grid">
-    <div>{{ player.name }}</div>
-    <button @click="itemClicked(1)" class="calculator" v-b-modal.calcModal>
+    <div>
+      <img @click="deletePlayer(index)" class="icon" src="../assets/delete.svg" />
+      {{ player.name }}
+    </div>
+    <div @click="itemClicked(1)" class="calculator" v-b-modal.calcModal>
       {{ score[0] }}
-    </button>
-    <button @click="itemClicked(2)" class="calculator" v-b-modal.calcModal>
+    </div>
+    <div @click="itemClicked(2)" class="calculator" v-b-modal.calcModal>
       {{ score[1] }}
-    </button>
-    <button @click="itemClicked(3)" class="calculator" v-b-modal.calcModal>
+    </div>
+    <div @click="itemClicked(3)" class="calculator" v-b-modal.calcModal>
       {{ score[2] }}
-    </button>
-    <button @click="itemClicked(4)" class="calculator" v-b-modal.dModal>
+    </div>
+    <div @click="itemClicked(4)" class="calculator" v-b-modal.dModal>
       {{ score[3] }}
-    </button>
+    </div>
     <div class="calculator">{{ total }}</div>
   </div>
 </template>
@@ -25,11 +28,19 @@ export default {
     itemClicked: function(round, event) {
       store.commit("setCurrPlayer", this.player.player);
       store.commit("setCurrRound", round);
+    },
+    deletePlayer: function(index) {
+      store.commit("deletePlayer", index);
     }
   },
   computed: {
     total: function() {
-      return Number(this.score[0]) + Number(this.score[1]) + Number(this.score[2]) + Number(this.score[3]);
+      return (
+        Number(this.score[0]) +
+        Number(this.score[1]) +
+        Number(this.score[2]) +
+        Number(this.score[3])
+      );
     },
     score: function() {
       return store.getters.score(this.player.player);
@@ -44,7 +55,9 @@ button:focus {
 }
 
 .calculator {
-  min-width: 100px;
+  min-width: 80%;
+  margin: 1px;
+  background: white;
 }
 .grid {
   color: #831a15;
@@ -61,5 +74,9 @@ button:focus {
 .grid > * {
   font-size: 16px;
   flex: 1 1 30px;
+}
+.icon {
+  float: left;
+  width: 16px;
 }
 </style>
