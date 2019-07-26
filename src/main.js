@@ -15,7 +15,6 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount("#app");
-
 store.commit("addPlayer", { name: "Brian", player: 1 });
 store.commit("addPlayer", { name: "Isabel", player: 2 });
 store.commit("addPlayer", { name: "Matthew", player: 3 });

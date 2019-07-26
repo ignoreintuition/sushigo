@@ -1,7 +1,11 @@
 <template>
   <div class="labels grid">
     <div>
-      <img @click="deletePlayer(index)" class="icon" src="../assets/delete.svg" />
+      <img
+        @click="deletePlayer(index)"
+        class="icon"
+        src="../assets/delete.svg"
+      />
       {{ player.name }}
     </div>
     <div @click="itemClicked(1)" class="calculator" v-b-modal.calcModal>
