@@ -1,7 +1,7 @@
 <template>
   <div id="scoresheet">
     <div id="header">
-      <h1>SUSHI GO</h1>
+      <h1>SUSHI GO!</h1>
     </div>
     <div class="row">
       <div class="col-2">
@@ -17,23 +17,38 @@
       <div v-for="(player, index) in players" class="col-2">
         <Player v-bind:player="player"> </Player>
       </div>
+      <div class="col-2">
+        <img @click="addPlayer()" class="icon" src="../assets/add.svg" />
+      </div>
     </div>
-    <Score />
-    <dScore />
+
+    <ScoreModal />
+    <ScoreDessertModal />
+    <NameModal />
   </div>
 </template>
 
 <script>
 import Player from "./Player.vue";
-import Score from "./Score.vue";
-import dScore from "./dScore.vue";
+import ScoreModal from "./modals/Score.vue";
+import ScoreDessertModal from "./modals/ScoreDessert.vue";
+import NameModal from "./modals/Name.vue";
 import store from "./../store";
 export default {
   props: {},
   components: {
     Player,
-    Score,
-    dScore
+    ScoreModal,
+    ScoreDessertModal,
+    NameModal
+  },
+  methods: {
+    addPlayer: function(event) {
+      store.commit("addPlayer", {
+        name: "Christian",
+        pid: Math.floor(Math.random() * 10000) + 1
+      });
+    }
   },
   data: () => ({
     players: store.getters.players
@@ -57,11 +72,12 @@ export default {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 220px;
+  height: 240px;
   align-content: center;
   margin: auto;
   justify-content: center;
   padding: 10px;
+  border-radius: 5px;
 }
 .grid > * {
   font-size: 16px;
@@ -74,5 +90,8 @@ img.logo {
 img.sushi {
   width: 300px;
   float: right;
+}
+#header {
+  font-family: "Arial Black", Gadget, sans-serif;
 }
 </style>

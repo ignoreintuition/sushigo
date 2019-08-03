@@ -1,19 +1,19 @@
 <template>
   <b-modal
-    id="dModal"
-    title="Score Calculator"
+    id="nameModal"
+    title="Player Name"
     @ok="handleOk"
     @hidden="resetModal"
     @show="resetModal"
   >
     <form>
       <div class="form-group">
-        <label for="pudding"> Pudding </label>
+        <label for="playerName"> Player Name </label>
         <input
-          type="number"
+          type="string"
           class="form-control"
-          id="desert"
-          v-model="score.pudding"
+          id="playerName"
+          v-model="playerName"
         />
       </div>
     </form>
@@ -21,23 +21,21 @@
 </template>
 
 <script>
-import store from "./../store";
+import store from "./../../store";
 export default {
   props: [],
   data: () => ({
-    score: {
-      pudding: null
-    }
+    playerName: null
   }),
   methods: {
     handleOk(bvModalEvt) {
       this.handleSubmit();
     },
     handleSubmit() {
-      store.commit("updateCurrPlayerScore", this.score);
+      store.commit("updateCurrPlayerName", this.playerName);
     },
     resetModal() {
-      this.score.pudding = 0;
+      this.playerName = null;
     }
   }
 };

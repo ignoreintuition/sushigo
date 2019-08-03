@@ -1,6 +1,6 @@
 <template>
   <b-modal
-    id="calcModal"
+    id="scoreModal"
     title="Score Calculator"
     @ok="handleOk"
     @hidden="resetModal"
@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import store from "./../store";
+import store from "./../../store";
 export default {
   props: [],
   data: () => ({
