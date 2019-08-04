@@ -4,7 +4,7 @@
       <h1>SUSHI GO!</h1>
     </div>
     <div class="row">
-      <div class="col-2">
+      <div class="grid-container col-sm-12 col-md-6 col-lg-2">
         <div class="labels grid">
           <div>Name</div>
           <div>Round 1</div>
@@ -14,11 +14,14 @@
           <div>Total</div>
         </div>
       </div>
-      <div v-for="(player, index) in players" class="col-2">
+      <div
+        v-for="(player, index) in players"
+        class="grid-container col-sm-12 col-md-6 col-lg-2"
+      >
         <Player v-bind:player="player"> </Player>
       </div>
       <div class="col-2">
-        <img @click="addPlayer()" class="icon" src="../assets/add.svg" />
+        <img @click="addPlayer()" class="icon-lg" src="../assets/add.png" />
       </div>
     </div>
 
@@ -83,6 +86,9 @@ export default {
   font-size: 16px;
   flex: 1 1 30px;
 }
+.grid-container {
+  padding: 10px;
+}
 img.logo {
   width: 80%;
 }
@@ -93,5 +99,9 @@ img.sushi {
 }
 #header {
   font-family: "Arial Black", Gadget, sans-serif;
+}
+.icon-lg {
+  width: 100px;
+  padding-top: 75px;
 }
 </style>

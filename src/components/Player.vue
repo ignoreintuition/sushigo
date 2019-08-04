@@ -5,7 +5,7 @@
         {{ name }}
       </a>
       <a href="#">
-        <img @click="deletePlayer()" class="icon" src="../assets/delete.svg" />
+        <img @click="deletePlayer()" class="icon" src="../assets/delete.png" />
       </a>
     </div>
     <a
